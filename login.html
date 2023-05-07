@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Shrava</title>
+  </head>
+  
+    <div id="page" class="site login-show">
+      <div class="container">
+        <div class="wrapper">
+          <div class="login">
+            <div class="content-heading">
+              <div class="y-style">
+                <div class="logo">
+                  <a href="#">.shr<span>ava</span></a>
+                </div>
+                <div class="welcome">
+                  <h2>
+                    Welcome <br />
+                    Back
+                  </h2>
+                </div>
+              </div>
+              </div>
+              <div class="content-form">
+                <div class="y-style">
+                  <form action="">
+                    <p>
+                      <label for="email">Email</label>
+                      <input
+                        type="text"
+                        name="login_email"
+                        id="login_email"
+                        class="form-control"
+                        placeholder="Enter your email"
+                      />
+                    </p>
+                    <p>
+                      <label for="password">Password</label>
+                      <input
+                        type="password"
+                        name="login_password"
+                        id="login_password"
+                        class="form-control"
+                        placeholder="Enter your password"
+                      />
+                    </p>
+                    <button
+                      type="button"
+                      id="login"
+                      name="login"
+                      class="btn btn-success"
+                    >
+                      Login
+                    </button>
+                  </form>
+                  <div class="afterform">
+                    <p>Dont Have an account?</p>
+                    <a href="#" class="t-signup">Register Here</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+
+          <!-- -----login ----- -->
+
+          <!-- ---signup--- -->
+          <div class="signup">
+            <div class="content-heading">
+              <div class="y-style">
+                <div class="logo">
+                  <a href="#">.shr<span>ava</span></a>
+                </div>
+                <div class="welcome">
+                  <h2>
+                    SignUp <br />
+                    Now
+                  </h2>
+                  
+                </div>
+              </div>
+              </div>
+              <div class="content-form">
+                <div class="y-style">
+                  <form action="">
+                    <p>
+                      <label for="email">Email</label>
+                      <input
+                        type="text"
+                        name="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="Enter your email"
+                      />
+                    </p>
+                    <p>
+                      <label for="password">Password</label>
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        class="form-control"
+                        placeholder="Enter your password"
+                      />
+                    </p>
+                    <button
+                      type="button"
+                      id="register"
+                      name="register"
+                      class="btn btn-success"
+                    >
+                      Register Now
+                    </button>
+                  </form>
+                  <div class="afterform">
+                    <p>AlreadyHave an account?</p>
+                    <a href="#" class="t-login">Login Here</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+
+
+  </body>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      signOut,
+    } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBH31_1R_NsVYktSnvEO3G-i7xNkAefNE4",
+      authDomain: "shrava-form.firebaseapp.com",
+      projectId: "shrava-form",
+      storageBucket: "shrava-form.appspot.com",
+      messagingSenderId: "352709469846",
+      appId: "1:352709469846:web:1091a298ef4e803ec704b7",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    console.log(app);
+
+    //----- New Registration code start
+    document.getElementById("register").addEventListener("click", function () {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      //For new registration
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          alert("Registration successfully!!");
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+          console.log(errorMessage);
+          alert(error);
+        });
+    });
+    //----- End
+
+    //----- Login code start
+    document.getElementById("login").addEventListener("click", function () {
+      var email = document.getElementById("login_email").value;
+      var password = document.getElementById("login_password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          alert(user.email + " Login successfully!!!");
+          document.getElementById("logout").style.display = "block";
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          alert(errorMessage);
+        });
+    });
+    //----- End
+
+    //----- Logout code start
+    document.getElementById("logout").addEventListener("click", function () {
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          console.log("Sign-out successful.");
+          alert("Sign-out successful.");
+          document.getElementById("logout").style.display = "none";
+        })
+        .catch((error) => {
+          // An error happened.
+          console.log("An error happened.");
+        });
+    });
+    //----- End
+  </script>
+  <script src="app.js"></script>
+</html>

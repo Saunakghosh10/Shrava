@@ -1,0 +1,23 @@
+.btn1 {
+  background-color: #477ef0;
+  border: none;
+  margin-top: 20px;
+  margin-right: 50px;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #002b5c;
+}
+
+.btn1 button:hover {
+  background-color: lightblue;
+}
+
+/* Add active styles */
+.btn1 button:active {
+  background-color: dodgerblue;
+}

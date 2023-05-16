@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>take the test</title>
+    <title
+      style="
+        #videoElement {
+          width: 100%;
+          height: auto;
+        }
+      "
+    >
+      take the test
+    </title>
     <link rel="stylesheet" href="taketest.CSS" />
   </head>
   <body>
@@ -14,19 +23,19 @@
         <ul>
           <li>
             <input type="radio" name="answer" id="a" class="answer" />
-            <label for="a" id="a_text">Answer</label>
+            <label for="a" id="a_text">Yes</label>
           </li>
           <li>
             <input type="radio" name="answer" id="b" class="answer" />
-            <label for="b" id="b_text">Answer</label>
+            <label for="b" id="b_text">Sometimes</label>
           </li>
           <li>
             <input type="radio" name="answer" id="c" class="answer" />
-            <label for="c" id="c_text">Answer</label>
+            <label for="c" id="c_text">I am not sure</label>
           </li>
           <li>
             <input type="radio" name="answer" id="d" class="answer" />
-            <label for="d" id="d_text">Answer</label>
+            <label for="d" id="d_text">No</label>
           </li>
         </ul>
       </div>
@@ -34,207 +43,280 @@
     </div>
 
     <script>
+      // const quiz = document.getElementById("quiz");
+      // const answerEls = document.querySelectorAll(".answer");
+      //const questionEl = document.getElementById("question");
+      //  const a_text = document.getElementById("a_text");
+      // const b_text = document.getElementById("b_text");
+      //  const c_text = document.getElementById("c_text");
+      //  const d_text = document.getElementById("d_text");
+      // const submitBtn = document.getElementById("submit");
+      //  let currentQuiz = 0;
+      //  let score = 0;
+      //  let b = 0.6;
+      //  let c = 0.4;
+      // loadQuiz();
+      //  function loadQuiz() {
+      //   deselectAnswers();
+      //    const currentQuizData = quizData[currentQuiz];
+      //    questionEl.innerText = currentQuizData.question;
+      //   a_text.innerText = currentQuizData.a;
+      //    b_text.innerText = currentQuizData.b;
+      //   c_text.innerText = currentQuizData.c;
+      //   d_text.innerText = currentQuizData.d;
+      //  }
+      // function deselectAnswers() {
+      //   answerEls.forEach((answerEl) => (answerEl.checked = false));
+      //  }
+      //  function getSelected() {
+      //    let answer;
+      //     answerEls.forEach((answerEl) => {
+      //        if (answerEl.checked) {
+      //         answer = answerEl.id;
+      //       }
+      //       });
+      //      return answer;
+      //   }
+      //    submitBtn.addEventListener("click", () => {
+      //       const answer = getSelected();
+      //      if (answer) {
+      //       if (answer === quizData[currentQuiz].correct) {
+      //        score++;
+      //      }
+
+      //      currentQuiz++;
+      //      if (currentQuiz < quizData.length) {
+      //       loadQuiz();
+      //     } else {
+      //       quiz.innerHTML = `
+      //      <h2>Your score is ${score}/${quizData.length} <br>
+
+      //     Go Back To <a href="home.html">Home</a> Page To Continue
+      //     </h2>
+      //  <button onclick="location.reload()">Reload</button>
+      //    `;
+      //     }
+      //   }
+      //  });
+
+      //   const quizData = [
+      // Quiz questions and answers
+      //   ];
+
       const quizData = [
         {
-          question: "1. Are you feeling sad or hopeless most of the time? ",
-
-          a: "Yes",
-          b: "Sometimes",
-          c: "I am not Sure",
-          d: "No",
-          correct: "a",
+          question: "1. Are you feeling sad or hopeless most of the time?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
         },
+
         {
           question:
             "2. Do you find it difficult to enjoy activities that you used to enjoy?",
-          a: "Yes",
-          b: "Sometimes",
-          c: "I am not Sure",
-          d: "No",
-          correct: "a",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
+        },
+
+        {
+          question: "3. Do you feel anxious or worried a lot of the time?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
+        },
+
+        {
+          question: "4. Are you feeling sad or hopeless most of the time?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
+        },
+
+        {
+          question: "5. Are you having trouble sleeping or sleeping too much?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
+        },
+
+        {
+          question: "6. Are you feeling sad or hopeless most of the time?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
+        },
+
+        {
+          question: "7.Do you feel tired or fatigued most of the time?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
+        },
+
+        {
+          question:
+            "8. Have you noticed changes in your appetite or weight recently?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
         },
         {
-          question: "3.Do you feel anxious or worried a lot of the time?",
-          a: "Yes",
-          b: "Sometimes",
-          c: "I am not Sure",
-          d: "No",
-          correct: "a",
+          question: "9. Are you feeling sad or hopeless most of the time?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
         },
         {
-          question: "4.Are you having trouble sleeping or sleeping too much?",
-          a: "Yes",
-          b: "Sometimes",
-          c: "I am not Sure",
-          d: "No",
-          correct: "a",
+          question: "10. Do you feel guilty or worthless?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
         },
         {
-          question: "5.Do you feel tired or fatigued most of the time?",
-          a: "Yes",
-          b: "Sometimes",
-          c: "I am not Sure",
-          d: "No",
-          correct: "a",
+          question:
+            "11. Have you experienced any changes in your memory or concentration?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
         },
-        // {
-        //   question:
-        //     "6.Have you noticed changes in your appetite or weight recently?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question: "7.Do you feel guilty or worthless?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question:
-        //     "8.Have you experienced any changes in your memory or concentration?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question: "9.Have you had thoughts of harming yourself or others?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question:
-        //     "10.Do you have a history of mental illness or substance abuse?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question:
-        //     "11.Do you have a history of mental illness or substance abuse?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question:
-        //     "12.Do you have a history of mental illness or substance abuse?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question: "13.Have you experienced any traumatic events recently?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question:
-        //     "14.Do you feel socially isolated or disconnected from others?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question:
-        //     "15.Have you experienced any changes in your sexual desire or behavior?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question:
-        //     "16.Do you have trouble controlling your emotions or mood swings?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
-        // {
-        //   question:
-        //     "17.Have you noticed any changes in your physical health, such as unexplained pain or discomfort?",
-        //   a: "Yes",
-        //   b: "Sometimes",
-        //   c: "I am not Sure",
-        //   d: "No",
-        //   correct: "a",
-        // },
+        {
+          question: "12. Have you had thoughts of harming yourself or others?",
+          answers: {
+            a: "Yes",
+            b: "Sometimes",
+            c: "I am not sure",
+            d: "No",
+          },
+        },
+
+        // Add more questions following the same format
       ];
+
       const quiz = document.getElementById("quiz");
       const answerEls = document.querySelectorAll(".answer");
       const questionEl = document.getElementById("question");
-      const a_text = document.getElementById("a_text");
-      const b_text = document.getElementById("b_text");
-      const c_text = document.getElementById("c_text");
-      const d_text = document.getElementById("d_text");
       const submitBtn = document.getElementById("submit");
+
       let currentQuiz = 0;
       let score = 0;
-      let b = 0.6; 
-      let c = 0.4;
+
       loadQuiz();
+
       function loadQuiz() {
         deselectAnswers();
+
         const currentQuizData = quizData[currentQuiz];
         questionEl.innerText = currentQuizData.question;
-        a_text.innerText = currentQuizData.a;
-        b_text.innerText = currentQuizData.b;
-        c_text.innerText = currentQuizData.c;
-        d_text.innerText = currentQuizData.d;
+
+        const answerKeys = Object.keys(currentQuizData.answers);
+        answerKeys.forEach((key, index) => {
+          const answerText = currentQuizData.answers[key];
+          const answerEl = answerEls[index];
+
+          answerEl.nextElementSibling.innerText = answerText;
+          answerEl.value = key;
+        });
       }
+
       function deselectAnswers() {
-        answerEls.forEach((answerEl) => (answerEl.checked = false));
+        answerEls.forEach((answerEl) => {
+          answerEl.checked = false;
+        });
       }
+
       function getSelected() {
-        let answer;
+        let answer = undefined;
+
         answerEls.forEach((answerEl) => {
           if (answerEl.checked) {
-            answer = answerEl.id;
+            answer = answerEl.value;
           }
         });
+
         return answer;
       }
+
+      function calculateScore(answer) {
+        let scoreValue = 0;
+
+        if (answer === "a") {
+          scoreValue = 1;
+        } else if (answer === "b") {
+          scoreValue = 0.7;
+        } else if (answer === "c") {
+          scoreValue = 0.35;
+        } else if (answer === "d") {
+          scoreValue = 0.1;
+        }
+
+        return scoreValue;
+      }
+
+      function redirectToPage(score) {
+        let pageURL = "page1.html"; // Default page if score does not match any condition
+
+        if (score >= 9) {
+          pageURL = "page5.html";
+        } else if (score >= 6.5) {
+          pageURL =
+            "https://www.goodtherapy.org/blog/5-ways-to-improve-your-mental-health-and-increase-happiness-0312155"; //page4.html
+        } else if (score >= 4) {
+          pageURL =
+            "https://www.happycounts.org/blog/the-link-between-mental-stability-happiness"; //page3.html
+        } else if (score >= 2.5) {
+          pageURL = "page2.html";
+        }
+
+        window.location.href = pageURL;
+      }
+
       submitBtn.addEventListener("click", () => {
         const answer = getSelected();
+
         if (answer) {
-          if (answer === quizData[currentQuiz].correct) {
-            score++;
-          }
-        
+          const scoreValue = calculateScore(answer);
+          score += scoreValue;
+
           currentQuiz++;
+
           if (currentQuiz < quizData.length) {
             loadQuiz();
           } else {
-            quiz.innerHTML = `
-           <h2>Your score is ${score}/${quizData.length} <br>
-
-            Go Back To <a href="home.html">Home</a> Page To Continue 
-            </h2>
-           <button onclick="location.reload()">Reload</button>
-           `;
+            redirectToPage(score);
           }
         }
       });

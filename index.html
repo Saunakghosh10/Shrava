@@ -3834,6 +3834,25 @@
         munchkinId: "335-QLG-882",
         formIds: uniqueFormIdsInMarkup,
       };
+
+      const video = document.getElementById("videoElement");
+
+    
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+       
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+           
+            video.srcObject = stream;
+            video.play();
+          })
+          .catch(function (error) {
+            console.error("Error accessing the camera: ", error);
+          });
+      } else {
+        console.error("getUserMedia is not supported in this browser.");
+      }
     </script>
 
     <script src="scripts/main.bundlea4f0.js?v=0"></script>
@@ -3883,5 +3902,4 @@
     </script>
   </body>
 
-  <!-- Mirrored from business.Shrava.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 07 May 2023 18:20:23 GMT -->
 </html>
